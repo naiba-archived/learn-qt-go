@@ -5,8 +5,12 @@ import QtQuick.Controls 2.3
 Window {
     visible: true
     width: 400
+    maximumWidth: 400
+    minimumWidth: 400
     height: 300
-    title: qsTr("图片预览")
+    maximumHeight: 300
+    minimumHeight: 300
+    title: "线上图像预览工具"
 
     BorderImage {
         id: borderImage
@@ -16,7 +20,6 @@ Window {
         height: 163
         source: "qrc:///assets/dog.jpg"
         visible: true
-        clip: false
     }
 
     TextField {
@@ -25,7 +28,7 @@ Window {
         y: 219
         width: 233
         height: 40
-        text: qsTr("")
+        text: v.imageURL
         placeholderText: "图片地址 http(s)://"
     }
 
@@ -33,6 +36,32 @@ Window {
         id: button
         x: 275
         y: 219
-        text: qsTr("预览")
+        text: "预览"
+        onClicked: {
+            popup.open()
+        }
+    }
+
+    Popup {
+        id: popup
+        x: 100
+        y: 108
+        width: 200
+        height: 85
+        modal: true
+        focus: true
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+
+        Rectangle
+        {
+            //width: 400
+            //height: 300
+            anchors.fill: popup
+            Text {
+                id: mytext
+                font.pixelSize: 13
+                text: qsTr("Popup 内容显示模块")
+            }
+        }
     }
 }
