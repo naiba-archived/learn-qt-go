@@ -6,7 +6,7 @@ Window {
     visible: true
     width: 400
     height: 300
-    title: qsTr("Image VIewer")
+    title: qsTr("图片预览")
 
     BorderImage {
         id: borderImage
@@ -14,8 +14,9 @@ Window {
         y: 22
         width: 350
         height: 163
-        border.right: -13
-        source: "qrc:/qtquickplugin/images/template_image.png"
+        source: "qrc:///assets/dog.jpg"
+        visible: true
+        clip: false
     }
 
     TextField {
@@ -24,13 +25,14 @@ Window {
         y: 219
         width: 233
         height: 40
-        text: qsTr("Text Field")
+        text: qsTr("")
+        placeholderText: "图片地址 http(s)://"
     }
 
     Button {
         id: button
         x: 275
         y: 219
-        text: qsTr("Button")
+        text: qsTr("预览")
     }
 }
