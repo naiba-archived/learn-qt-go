@@ -32,7 +32,7 @@ func downloadFromURL(url string) (string, error) {
 		return "", err
 	}
 
-	return filename, nil
+	return "file://" + filename, nil
 }
 
 func getCurPath() string {

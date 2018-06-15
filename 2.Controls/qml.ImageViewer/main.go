@@ -11,8 +11,7 @@ import (
 	"github.com/therecipe/qt/qml"
 )
 
-//Viewer image viewer
-type Viewer struct {
+type viewer struct {
 	core.QObject
 
 	_ func() bool `slot:"downloadImage"`
@@ -21,7 +20,7 @@ type Viewer struct {
 	_ string      `property:"errorMsg"`
 }
 
-func (v *Viewer) downloadImage() bool {
+func (v *viewer) downloadImage() bool {
 	remoteURL := v.RemoteURL()
 	if !strings.HasPrefix(remoteURL, "http") {
 		v.SetErrorMsg("输入地址不正确")
@@ -36,20 +35,24 @@ func (v *Viewer) downloadImage() bool {
 	return true
 }
 
-var v *Viewer
+var v *viewer
 
 var downloadDir string
 
 func init() {
-	currPath := getCurPath()
+	currPath := getCurPath() + "/"
+	if strings.HasSuffix(currPath, "/qml.ImageViewer.app/Contents/MacOS/") {
+		currPath = strings.Replace(currPath, "/qml.ImageViewer.app/Contents/MacOS", "", -1)
+	}
+
+	f, _ := os.Create(currPath + "err.log")
+	log.SetOutput(f)
+
 	downloadDir = currPath + "demo-downloads/"
 	_, err := os.Stat(downloadDir)
 	if err != nil {
 		err = os.Mkdir(downloadDir, os.ModePerm)
 		if err != nil {
-			f, _ := os.Create(currPath + "err.log")
-			defer f.Close()
-			log.SetOutput(f)
 			log.Println(err)
 			os.Exit(-1)
 		}

@@ -38,13 +38,11 @@ Window {
         y: 219
         text: "预览"
         onClicked: {
-            v.remoteURL = textField.text
+            v.remoteURL = textField.text.trim()
             if(!v.downloadImage()){
                 popup.open()
                 return
             }
-            borderImage.source = v.imageURL
-            textField.text = v.imageURL
         }
     }
 
