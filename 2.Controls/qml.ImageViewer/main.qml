@@ -18,7 +18,7 @@ Window {
         y: 22
         width: 350
         height: 163
-        source: "qrc:///assets/dog.jpg"
+        source: v.imageURL
         visible: true
     }
 
@@ -28,7 +28,7 @@ Window {
         y: 219
         width: 233
         height: 40
-        text: v.imageURL
+        text: v.remoteURL
         placeholderText: "图片地址 http(s)://"
     }
 
@@ -38,7 +38,13 @@ Window {
         y: 219
         text: "预览"
         onClicked: {
-            popup.open()
+            v.remoteURL = textField.text
+            if(!v.downloadImage()){
+                popup.open()
+                return
+            }
+            borderImage.source = v.imageURL
+            textField.text = v.imageURL
         }
     }
 
@@ -60,7 +66,7 @@ Window {
             Text {
                 id: mytext
                 font.pixelSize: 13
-                text: qsTr("Popup 内容显示模块")
+                text: v.errorMsg
             }
         }
     }
