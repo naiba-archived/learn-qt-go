@@ -7,4 +7,4 @@
 - 第一节：[《搭建 Go Qt 开发环境（Mac）》](https://www.lifelonglearning.cc/p180_mac-build-Go-Qt.html)
 
 - 第二节：常用控件讲解
-    - 2.1 [《QML 的 label 和 button》](https://www.lifelonglearning.cc/p197_qml_label_button.html)
+    - 2.1：[《QML 的 label 和 button》](https://www.lifelonglearning.cc/p197_qml_label_button.html)
