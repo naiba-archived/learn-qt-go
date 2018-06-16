@@ -73,7 +73,7 @@ func main() {
 
 func initViewer() {
 	v = NewViewer(nil)
-	v.SetImageURL("qrc:///assets/dog.jpg")
+	v.SetImageURL("qrc:/assets/dog.jpg")
 	v.SetRemoteURL(downloadDir)
 	v.ConnectDownloadImage(v.downloadImage)
 }
