@@ -1,6 +1,8 @@
 # Learning Qt with Go
 
-![license](https://img.shields.io/github/license/mashape/apistatus.svg)
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+
+
 
  :orange_book:跟 **奶爸** 一起学习 Go GUI，系列博文地址[《跟奶爸一起学 Go GUI（Go + Qt）》](https://www.lifelonglearning.cc/p179_go-qt.html)。
 
