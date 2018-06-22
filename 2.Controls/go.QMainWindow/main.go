@@ -26,8 +26,8 @@ func main() {
 	var mw = initHello()
 	var availableGeometry = widgets.QApplication_Desktop().AvailableGeometry2(mw)
 	mw.Resize2(600, 450)
-	mw.Move2((availableGeometry.Width()-mw.Width())/2-300,
-		(availableGeometry.Height()-mw.Height())/2-225)
+	mw.Move2((availableGeometry.Width()-mw.Width())/2,
+		(availableGeometry.Height()-mw.Height())/2)
 
 	mw.Show()
 	qApp.Exec()
