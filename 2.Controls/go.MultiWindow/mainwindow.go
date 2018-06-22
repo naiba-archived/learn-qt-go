@@ -2,6 +2,7 @@ package main
 
 import (
 	"runtime"
+	"strconv"
 
 	"github.com/therecipe/qt/core"
 	"github.com/therecipe/qt/widgets"
@@ -11,7 +12,7 @@ import (
 type MultiWindow struct {
 	widgets.QMainWindow
 
-	label *widgets.QLabel
+	btn *widgets.QPushButton
 }
 
 func initMultiWindow() *MultiWindow {
@@ -19,8 +20,18 @@ func initMultiWindow() *MultiWindow {
 	if runtime.GOOS == "darwin" {
 		this.SetUnifiedTitleAndToolBarOnMac(true)
 	}
+	dbb := widgets.NewQDialog(this, 0)
+	dbb.SetWindowTitle("Dialog Button Box")
+
 	this.SetWindowTitle(core.QCoreApplication_ApplicationName())
-	this.label = widgets.NewQLabel2("hello world!", this, 0)
-	this.label.SetStyleSheet("background-color: red")
+	this.btn = widgets.NewQPushButton(this)
+	this.btn.SetText("新窗口")
+	this.btn.SetFixedWidth(100)
+	this.btn.SetFixedHeight(50)
+
+	this.btn.ConnectClicked(func(b bool) {
+		this.SetWindowTitle(strconv.Itoa(dbb.Exec()))
+	})
+
 	return this
 }
