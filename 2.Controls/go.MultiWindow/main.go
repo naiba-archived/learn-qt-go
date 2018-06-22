@@ -15,7 +15,7 @@ func main() {
 	core.QCoreApplication_SetApplicationName("multi window")
 	core.QCoreApplication_SetApplicationVersion("1.0.0")
 
-	var mw = initMultiWindow()
+	var mw = initFirstWindow()
 	var availableGeometry = widgets.QApplication_Desktop().AvailableGeometry2(mw)
 	mw.Resize2(600, 450)
 	mw.Move2((availableGeometry.Width()-mw.Width())/2,

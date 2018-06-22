@@ -2,35 +2,40 @@ package main
 
 import (
 	"runtime"
-	"strconv"
 
 	"github.com/therecipe/qt/core"
 	"github.com/therecipe/qt/widgets"
 )
 
 //MultiWindow code gen ui
-type MultiWindow struct {
+type FirstWindow struct {
 	widgets.QMainWindow
 
 	btn *widgets.QPushButton
 }
 
-func initMultiWindow() *MultiWindow {
-	var this = NewMultiWindow(nil, 0)
+func initFirstWindow() *FirstWindow {
+	var this = NewFirstWindow(nil, 0)
+	var second = initSecondWindow(this, 0)
+
 	if runtime.GOOS == "darwin" {
 		this.SetUnifiedTitleAndToolBarOnMac(true)
 	}
-	dbb := widgets.NewQDialog(this, 0)
-	dbb.SetWindowTitle("Dialog Button Box")
-
 	this.SetWindowTitle(core.QCoreApplication_ApplicationName())
+	this.SetFixedWidth(200)
+	this.SetFixedHeight(100)
+
 	this.btn = widgets.NewQPushButton(this)
-	this.btn.SetText("新窗口")
+	this.btn.SetText("打开新窗口")
 	this.btn.SetFixedWidth(100)
 	this.btn.SetFixedHeight(50)
 
 	this.btn.ConnectClicked(func(b bool) {
-		this.SetWindowTitle(strconv.Itoa(dbb.Exec()))
+		if widgets.QDialog__DialogCode(second.Exec()) == widgets.QDialog__Accepted {
+			this.SetWindowTitle("Accept")
+		} else {
+			this.SetWindowTitle("Reject")
+		}
 	})
 
 	return this
