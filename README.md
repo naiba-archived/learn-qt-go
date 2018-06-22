@@ -12,3 +12,4 @@
     - （一）：[《QML 的 label 和 button》](https://www.lifelonglearning.cc/p197_qml_label_button.html)
     - （二）：[《QML 与 Go 交互》](https://www.lifelonglearning.cc/p202_image-viewer.html)
     - （三）：[《Go 创建控件》](https://www.lifelonglearning.cc/p209_Go-Create-Control.html)
+    - （四）：[《Go 的多窗口 Qt 应用》](https://www.lifelonglearning.cc/p213_qo-qt-multi-window.html)
