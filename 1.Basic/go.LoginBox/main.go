@@ -20,8 +20,8 @@ func main() {
 
 	if widgets.QDialog__DialogCode(login.Exec()) == widgets.QDialog__Accepted {
 		mw.Show()
-		qApp.Exec()
 	} else {
 		qApp.Quit()
 	}
+	qApp.Exec()
 }

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/therecipe/qt/core"
 	"github.com/therecipe/qt/widgets"
 )
 
@@ -15,16 +14,16 @@ type LoginWindow struct {
 }
 
 func initLoginWindow() *LoginWindow {
-	var this = NewLoginWindow(nil, core.Qt__WindowFullscreenButtonHint|core.Qt__WindowMaximizeButtonHint)
-	this.SetMinimumSize2(150, 90)
-	this.SetMaximumSize2(150, 90)
+	var this = NewLoginWindow(nil, 0)
+	this.SetMinimumSize2(147, 93)
+	this.SetMaximumSize2(147, 93)
 
 	this.user = widgets.NewQLineEdit(this)
 	this.user.Move2(10, 10)
 	this.pass = widgets.NewQLineEdit(this)
 	this.pass.Move2(10, 40)
 	this.btn = widgets.NewQPushButton(this)
-	this.btn.Move2(40, 60)
+	this.btn.Move2(40, 63)
 
 	this.user.SetPlaceholderText("用户名")
 	this.pass.SetEchoMode(widgets.QLineEdit__Password)
@@ -35,7 +34,7 @@ func initLoginWindow() *LoginWindow {
 			this.Accept()
 		} else {
 			mb := widgets.NewQMessageBox(this)
-			mb.Warning(this, "温馨提示", "账号或密码不正确", widgets.QMessageBox__Default, widgets.QMessageBox__Yes)
+			mb.Warning(this, "温馨提示", "账号或密码不正确:"+this.user.Text()+","+this.pass.Text(), widgets.QMessageBox__Default, widgets.QMessageBox__Yes)
 		}
 	})
 
