@@ -17,6 +17,7 @@ func initLoginWindow() *LoginWindow {
 	var this = NewLoginWindow(nil, 0)
 	this.SetMinimumSize2(147, 93)
 	this.SetMaximumSize2(147, 93)
+	this.SetWindowTitle("用户登陆")
 
 	this.user = widgets.NewQLineEdit(this)
 	this.user.Move2(10, 10)
