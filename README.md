@@ -12,3 +12,4 @@
 3. [《QML 与 Go 交互》](https://www.lifelonglearning.cc/p202_image-viewer.html)
 4. [《Go 创建控件》](https://www.lifelonglearning.cc/p209_Go-Create-Control.html)
 5. [《Go 的多窗口 Qt 应用》](https://www.lifelonglearning.cc/p213_qo-qt-multi-window.html)
+6. [《Go 登陆窗口》](https://www.lifelonglearning.cc/p217_go-qt-login-box.html)
