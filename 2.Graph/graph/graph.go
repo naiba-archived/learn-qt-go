@@ -18,12 +18,10 @@ func initGraph() *GraphWindow {
 	this.scene = widgets.NewQGraphicsScene(this)
 
 	this.SetWindowTitle("图形视图框架")
-	this.SetFixedSize(this.Size())
+	this.SetMinimumSize(this.Size())
+	this.view.SetMinimumSize(this.Size())
 	this.view.SetScene(this.scene)
-	this.view.SetFixedSize(this.Size())
-
-	item := widgets.NewQGraphicsRectItem3(100, 100, 50, 50, nil)
-	this.scene.AddItem(item)
+	this.scene.AddItem(NewMyItem())
 
 	return this
 }
