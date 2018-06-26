@@ -17,5 +17,8 @@ func init() {
 func main() {
 	qApp := widgets.NewQApplication(len(os.Args), os.Args)
 
+	var mw = initGraph()
+	mw.Show()
+
 	qApp.Exec()
 }
